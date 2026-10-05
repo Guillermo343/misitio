@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<title>Contacto | Guillermo Chandomi</title>
+<meta name="description" content="Escribe a Guillermo Javier Chandomi Escobar para hablar de tu proyecto.">
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="index.html">Guillermo<span>.dev</span></a>
+<div class="tools"><button class="icon-btn" id="tema-btn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+<nav id="nav" aria-label="Principal"><ul>
+<li><a href="index.html">Inicio</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="index.html#proyectos">Proyectos</a></li><li><a href="contact.html">Contacto</a></li>
+</ul></nav></div></header>
+<main>
+<section><div class="wrap split">
+ <div><h1 style="font-size:clamp(2.2rem,5vw,3.4rem)">Contacto</h1>
+  <p class="lead">Cuéntame sobre tu proyecto o idea. Respondo en uno o dos días.</p>
+  <div class="contact-info">
+   <p><strong>Correo:</strong> <a href="mailto:TU_CORREO@ejemplo.com">TU_CORREO@ejemplo.com</a></p>
+   <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank" rel="noopener">github.com/tu-usuario</a></p>
+   <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/tu-perfil</a></p>
+  </div></div>
+ <form id="form-contacto" novalidate>
+  <label>Nombre<input name="nombre" type="text" autocomplete="name"><span class="error" data-error="nombre"></span></label>
+  <label>Correo<input name="correo" type="email" autocomplete="email"><span class="error" data-error="correo"></span></label>
+  <label>Mensaje<textarea name="mensaje"></textarea><span class="error" data-error="mensaje"></span></label>
+  <button class="btn" type="submit">Enviar mensaje</button>
+  <p id="estado" role="status"></p>
+ </form>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© <span class="anio"></span> Guillermo Javier Chandomi Escobar</span><span>Hecho con HTML, CSS y JavaScript</span></div></footer>
+<script src="js/script.js"></script>
+</body>
+</html>

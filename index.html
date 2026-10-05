@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<title>Guillermo Chandomi | Desarrollador de software</title>
+<meta name="description" content="Portafolio de Guillermo Javier Chandomi Escobar, desarrollador de software con Python, JavaScript, Docker y Linux.">
+</head>
+<body>
+<header><div class="wrap bar"><a class="logo" href="index.html">Guillermo<span>.dev</span></a>
+<div class="tools"><button class="icon-btn" id="tema-btn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+<nav id="nav" aria-label="Principal"><ul>
+<li><a href="index.html">Inicio</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="index.html#proyectos">Proyectos</a></li><li><a href="contact.html">Contacto</a></li>
+</ul></nav></div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+ <div>
+  <h1>Guillermo Javier Chandomi Escobar</h1>
+  <p class="lead">Desarrollador de software. Construyo aplicaciones con Python y JavaScript, y las dejo funcionando en contenedores Docker sobre Linux.</p>
+  <div class="actions"><a class="btn" href="#proyectos">Ver proyectos</a><a class="btn ghost" href="contact.html">Contáctame</a></div>
+  <div class="term" aria-hidden="true"><div><b>guillermo@linux</b>:~$ docker compose up -d</div><div>✔ app corriendo en el puerto 8000</div><div><b>guillermo@linux</b>:~$ <span class="cursor"></span></div></div>
+ </div>
+ <figure class="photo"><img src="img/foto.png" alt="Retrato de Guillermo Chandomi con traje negro, sonriendo" width="1086" height="950"></figure>
+</div></section>
+
+<section id="sobre-mi"><div class="wrap split reveal">
+ <div><h2>Sobre mí</h2>
+  <p>Me gusta entender cómo funciona un sistema de punta a punta: desde el código hasta el servidor donde se ejecuta. Escribo software claro, lo empaqueto para que corra igual en cualquier máquina y lo mantengo simple.</p>
+  <p style="margin-top:1rem">Esta es una versión corta; en mi página personal cuento más.</p>
+  <p style="margin-top:1.4rem"><a class="btn ghost" href="about.html">Leer más sobre mí</a></p></div>
+ <ul class="skills" aria-label="Tecnologías"><li>Python</li><li>JavaScript</li><li>Docker</li><li>Linux</li><li>HTML y CSS</li><li>Git</li></ul>
+</div></section>
+
+<section id="proyectos"><div class="wrap">
+ <h2>Proyectos</h2>
+ <p>Una selección de lo que he construido. Reemplaza estos ejemplos con tus proyectos reales y sus enlaces.</p>
+ <div class="grid">
+  <article class="card reveal"><h3>API de tareas</h3><p>Servicio REST para crear y organizar tareas, con autenticación y pruebas automáticas.</p><div class="tags"><span>Python</span><span>Docker</span></div><a href="#">Ver código</a></article>
+  <article class="card reveal"><h3>Panel de monitoreo</h3><p>Scripts y panel web que revisan el uso de CPU, memoria y disco de servidores Linux.</p><div class="tags"><span>Linux</span><span>JavaScript</span></div><a href="#">Ver código</a></article>
+  <article class="card reveal"><h3>Automatización de despliegues</h3><p>Imágenes Docker y scripts que publican una aplicación web con un solo comando.</p><div class="tags"><span>Docker</span><span>Bash</span></div><a href="#">Ver código</a></article>
+ </div>
+</div></section>
+
+<section id="contacto"><div class="wrap"><div class="cta reveal">
+ <h2>¿Tienes un proyecto en mente?</h2>
+ <p>Cuéntame qué necesitas y te respondo lo antes posible.</p>
+ <a class="btn" href="contact.html">Escribirme un mensaje</a>
+</div></div></section>
+</main>
+<footer><div class="wrap"><span>© <span class="anio"></span> Guillermo Javier Chandomi Escobar</span><span>Hecho con HTML, CSS y JavaScript</span></div></footer>
+<script src="js/script.js"></script>
+</body>
+</html>
