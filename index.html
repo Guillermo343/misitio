@@ -1,55 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portafolio de Guillermo Javier Chandomi Escobar, desarrollador de software especializado en Python, JavaScript, Docker y Linux.">
+<meta name="author" content="Guillermo Javier Chandomi Escobar">
+<title>Guillermo Chandomi | Software Developer</title>
 <link rel="stylesheet" href="css/styles.css">
-<title>Guillermo Chandomi | Desarrollador de software</title>
-<meta name="description" content="Portafolio de Guillermo Javier Chandomi Escobar, desarrollador de software con Python, JavaScript, Docker y Linux.">
 </head>
 <body>
-<header><div class="wrap bar"><a class="logo" href="index.html">Guillermo<span>.dev</span></a>
-<div class="tools"><button class="icon-btn" id="tema-btn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
-<nav id="nav" aria-label="Principal"><ul>
-<li><a href="index.html">Inicio</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="index.html#proyectos">Proyectos</a></li><li><a href="contact.html">Contacto</a></li>
-</ul></nav></div></header>
+<header class="header" id="header">
+<nav class="navbar container">
+<a href="index.html" class="logo"><span>&lt;</span>GCE<span>/&gt;</span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="navMenu">
+<a href="index.html" class="nav-link active">Inicio</a>
+<a href="about.html" class="nav-link">Sobre mí</a>
+<a href="#projects" class="nav-link">Proyectos</a>
+<a href="contact.html" class="nav-link nav-contact">Contacto</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"><span id="themeIcon">☾</span></button>
+</div>
+</nav>
+</header>
+
 <main>
-<section class="hero" id="inicio"><div class="wrap">
- <div>
-  <h1>Guillermo Javier Chandomi Escobar</h1>
-  <p class="lead">Desarrollador de software. Construyo aplicaciones con Python y JavaScript, y las dejo funcionando en contenedores Docker sobre Linux.</p>
-  <div class="actions"><a class="btn" href="#proyectos">Ver proyectos</a><a class="btn ghost" href="contact.html">Contáctame</a></div>
-  <div class="term" aria-hidden="true"><div><b>guillermo@linux</b>:~$ docker compose up -d</div><div>✔ app corriendo en el puerto 8000</div><div><b>guillermo@linux</b>:~$ <span class="cursor"></span></div></div>
- </div>
- <figure class="photo"><img src="img/foto.png" alt="Retrato de Guillermo Chandomi con traje negro, sonriendo" width="1086" height="950"></figure>
-</div></section>
+<section class="hero">
+<div class="hero-background"></div>
+<div class="container hero-content">
+<div class="hero-text reveal">
+<p class="hero-eyebrow"><span class="status-dot"></span>Disponible para nuevos proyectos</p>
+<h1>Guillermo Javier <span>Chandomi Escobar</span></h1>
+<h2>Software Developer</h2>
+<p class="hero-description">Desarrollo soluciones digitales modernas, eficientes y escalables utilizando tecnología para convertir ideas en productos funcionales.</p>
+<div class="hero-tech"><span>Python</span><span>JavaScript</span><span>Docker</span><span>Linux</span></div>
+<div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">Ver proyectos <span>↗</span></a>
+<a href="contact.html" class="btn btn-outline">Contactarme</a>
+</div>
+<div class="social-links"><a href="#" aria-label="GitHub">GitHub</a><span>/</span><a href="#" aria-label="LinkedIn">LinkedIn</a></div>
+</div>
 
-<section id="sobre-mi"><div class="wrap split reveal">
- <div><h2>Sobre mí</h2>
-  <p>Me gusta entender cómo funciona un sistema de punta a punta: desde el código hasta el servidor donde se ejecuta. Escribo software claro, lo empaqueto para que corra igual en cualquier máquina y lo mantengo simple.</p>
-  <p style="margin-top:1rem">Esta es una versión corta; en mi página personal cuento más.</p>
-  <p style="margin-top:1.4rem"><a class="btn ghost" href="about.html">Leer más sobre mí</a></p></div>
- <ul class="skills" aria-label="Tecnologías"><li>Python</li><li>JavaScript</li><li>Docker</li><li>Linux</li><li>HTML y CSS</li><li>Git</li></ul>
-</div></section>
+<div class="hero-image-wrapper reveal">
+<div class="hero-image-glow"></div>
+<div class="hero-image-card">
+<img src="img/guillermo.jpg" alt="Guillermo Javier Chandomi Escobar" class="hero-image">
+<div class="image-decoration decoration-one"></div><div class="image-decoration decoration-two"></div>
+</div>
+<div class="floating-card floating-card-top"><span class="floating-icon">{ }</span><div><strong>Clean Code</strong><small>Desarrollo</small></div></div>
+<div class="floating-card floating-card-bottom"><span class="floating-icon">⌘</span><div><strong>Problem Solver</strong><small>Software</small></div></div>
+</div>
+</div>
+<div class="scroll-indicator"><span>SCROLL</span><div class="scroll-line"></div></div>
+</section>
 
-<section id="proyectos"><div class="wrap">
- <h2>Proyectos</h2>
- <p>Una selección de lo que he construido. Reemplaza estos ejemplos con tus proyectos reales y sus enlaces.</p>
- <div class="grid">
-  <article class="card reveal"><h3>API de tareas</h3><p>Servicio REST para crear y organizar tareas, con autenticación y pruebas automáticas.</p><div class="tags"><span>Python</span><span>Docker</span></div><a href="#">Ver código</a></article>
-  <article class="card reveal"><h3>Panel de monitoreo</h3><p>Scripts y panel web que revisan el uso de CPU, memoria y disco de servidores Linux.</p><div class="tags"><span>Linux</span><span>JavaScript</span></div><a href="#">Ver código</a></article>
-  <article class="card reveal"><h3>Automatización de despliegues</h3><p>Imágenes Docker y scripts que publican una aplicación web con un solo comando.</p><div class="tags"><span>Docker</span><span>Bash</span></div><a href="#">Ver código</a></article>
- </div>
-</div></section>
+<section class="stats-section">
+<div class="container stats-grid">
+<div class="stat reveal"><strong>04+</strong><span>Tecnologías principales</span></div>
+<div class="stat reveal"><strong>∞</strong><span>Curiosidad por aprender</span></div>
+<div class="stat reveal"><strong>100%</strong><span>Compromiso</span></div>
+<div class="stat reveal"><strong>24/7</strong><span>Modo desarrollador</span></div>
+</div>
+</section>
 
-<section id="contacto"><div class="wrap"><div class="cta reveal">
- <h2>¿Tienes un proyecto en mente?</h2>
- <p>Cuéntame qué necesitas y te respondo lo antes posible.</p>
- <a class="btn" href="contact.html">Escribirme un mensaje</a>
-</div></div></section>
+<section class="about-preview section">
+<div class="container about-grid">
+<div class="section-label reveal"><span>01</span><p>Sobre mí</p></div>
+<div class="about-preview-content reveal">
+<h2>Construyendo soluciones <span>con tecnología.</span></h2>
+<p>Soy Guillermo Javier Chandomi Escobar, desarrollador de software apasionado por la tecnología y la creación de soluciones digitales.</p>
+<p>Me interesa especialmente el desarrollo con Python y JavaScript, además de trabajar con herramientas como Docker y entornos Linux. Siempre busco aprender nuevas tecnologías y mejorar la forma en que desarrollo software.</p>
+<a href="about.html" class="text-link">Conoce más sobre mí <span>→</span></a>
+</div>
+</div>
+</section>
+
+<section class="skills-section section">
+<div class="container">
+<div class="section-heading reveal"><div><span class="section-number">02</span><h2>Stack tecnológico</h2></div><p>Herramientas y tecnologías con las que desarrollo mis proyectos.</p></div>
+<div class="skills-grid">
+<article class="skill-card reveal"><div class="skill-icon python-icon">Py</div><h3>Python</h3><p>Desarrollo de aplicaciones, automatización, scripts y soluciones backend.</p><div class="skill-line"><span></span></div></article>
+<article class="skill-card reveal"><div class="skill-icon js-icon">JS</div><h3>JavaScript</h3><p>Desarrollo web interactivo y creación de experiencias modernas en el navegador.</p><div class="skill-line"><span></span></div></article>
+<article class="skill-card reveal"><div class="skill-icon docker-icon">◈</div><h3>Docker</h3><p>Contenedores, ambientes reproducibles y despliegue de aplicaciones.</p><div class="skill-line"><span></span></div></article>
+<article class="skill-card reveal"><div class="skill-icon linux-icon">&gt;_</div><h3>Linux</h3><p>Administración de entornos, terminal, automatización y desarrollo.</p><div class="skill-line"><span></span></div></article>
+</div>
+</div>
+</section>
+
+<section class="projects-section section" id="projects">
+<div class="container">
+<div class="section-heading reveal"><div><span class="section-number">03</span><h2>Proyectos destacados</h2></div><p>Una selección de proyectos y conceptos desarrollados con diferentes tecnologías.</p></div>
+<div class="projects-grid">
+<article class="project-card project-large reveal"><div class="project-top"><span class="project-number">01</span><span class="project-type">Software</span></div><div class="project-content"><div class="project-icon">&lt;/&gt;</div><h3>Aplicación de gestión</h3><p>Sistema diseñado para administrar información de forma organizada, eficiente y sencilla.</p><div class="project-tags"><span>Python</span><span>SQL</span><span>Linux</span></div></div><a href="#" class="project-link">Ver proyecto <span>↗</span></a></article>
+<article class="project-card reveal"><div class="project-top"><span class="project-number">02</span><span class="project-type">Web</span></div><div class="project-content"><div class="project-icon">◉</div><h3>Aplicación web</h3><p>Interfaz web responsive enfocada en experiencia de usuario y rendimiento.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div><a href="#" class="project-link">Ver proyecto <span>↗</span></a></article>
+<article class="project-card reveal"><div class="project-top"><span class="project-number">03</span><span class="project-type">DevOps</span></div><div class="project-content"><div class="project-icon">◆</div><h3>Entorno Docker</h3><p>Proyecto enfocado en contenerización y configuración reproducible de aplicaciones.</p><div class="project-tags"><span>Docker</span><span>Linux</span><span>DevOps</span></div></div><a href="#" class="project-link">Ver proyecto <span>↗</span></a></article>
+<article class="project-card project-featured reveal"><div class="project-top"><span class="project-number">04</span><span class="project-type">Automation</span></div><div class="project-content"><div class="project-icon">⚡</div><h3>Automatización con Python</h3><p>Herramienta para automatizar tareas repetitivas y mejorar la productividad.</p><div class="project-tags"><span>Python</span><span>Automation</span></div></div><a href="#" class="project-link">Ver proyecto <span>↗</span></a></article>
+</div>
+</div>
+</section>
+
+<section class="cta-section"><div class="container"><div class="cta-box reveal"><div class="cta-decoration"></div><span class="cta-label">¿Tienes una idea?</span><h2>Hagamos algo <span>increíble.</span></h2><p>Si tienes un proyecto, una idea o simplemente quieres hablar sobre tecnología, me encantaría escucharte.</p><a href="contact.html" class="btn btn-primary">Hablemos <span>↗</span></a></div></div></section>
 </main>
-<footer><div class="wrap"><span>© <span class="anio"></span> Guillermo Javier Chandomi Escobar</span><span>Hecho con HTML, CSS y JavaScript</span></div></footer>
+
+<footer class="footer">
+<div class="container footer-content">
+<div class="footer-brand"><a href="index.html" class="logo"><span>&lt;</span>GCE<span>/&gt;</span></a><p>Software Developer · Python · JavaScript · Docker · Linux</p></div>
+<div class="footer-links"><a href="index.html">Inicio</a><a href="about.html">Sobre mí</a><a href="#projects">Proyectos</a><a href="contact.html">Contacto</a></div>
+<div class="footer-bottom"><p>© <span id="currentYear"></span> Guillermo Javier Chandomi Escobar. Todos los derechos reservados.</p><p>Diseñado y desarrollado con código.</p></div>
+</div>
+</footer>
 <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,38 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contacta con Guillermo Javier Chandomi Escobar para proyectos y oportunidades de desarrollo de software.">
 <title>Contacto | Guillermo Chandomi</title>
-<meta name="description" content="Escribe a Guillermo Javier Chandomi Escobar para hablar de tu proyecto.">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header><div class="wrap bar"><a class="logo" href="index.html">Guillermo<span>.dev</span></a>
-<div class="tools"><button class="icon-btn" id="tema-btn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
-<nav id="nav" aria-label="Principal"><ul>
-<li><a href="index.html">Inicio</a></li><li><a href="about.html">Sobre mí</a></li><li><a href="index.html#proyectos">Proyectos</a></li><li><a href="contact.html">Contacto</a></li>
-</ul></nav></div></header>
+<header class="header" id="header">
+<nav class="navbar container">
+<a href="index.html" class="logo"><span>&lt;</span>GCE<span>/&gt;</span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="navMenu">
+<a href="index.html" class="nav-link">Inicio</a>
+<a href="about.html" class="nav-link">Sobre mí</a>
+<a href="index.html#projects" class="nav-link">Proyectos</a>
+<a href="contact.html" class="nav-link nav-contact active">Contacto</a>
+<button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema"><span id="themeIcon">☾</span></button>
+</div>
+</nav>
+</header>
+
 <main>
-<section><div class="wrap split">
- <div><h1 style="font-size:clamp(2.2rem,5vw,3.4rem)">Contacto</h1>
-  <p class="lead">Cuéntame sobre tu proyecto o idea. Respondo en uno o dos días.</p>
-  <div class="contact-info">
-   <p><strong>Correo:</strong> <a href="mailto:TU_CORREO@ejemplo.com">TU_CORREO@ejemplo.com</a></p>
-   <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank" rel="noopener">github.com/tu-usuario</a></p>
-   <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/tu-perfil</a></p>
-  </div></div>
- <form id="form-contacto" novalidate>
-  <label>Nombre<input name="nombre" type="text" autocomplete="name"><span class="error" data-error="nombre"></span></label>
-  <label>Correo<input name="correo" type="email" autocomplete="email"><span class="error" data-error="correo"></span></label>
-  <label>Mensaje<textarea name="mensaje"></textarea><span class="error" data-error="mensaje"></span></label>
-  <button class="btn" type="submit">Enviar mensaje</button>
-  <p id="estado" role="status"></p>
- </form>
-</div></section>
+<section class="page-hero contact-hero"><div class="container page-hero-content reveal"><span class="page-label">CONTACTO / 04</span><h1>Hablemos de <span>tu proyecto.</span></h1><p>¿Tienes una idea, proyecto o propuesta? Envíame un mensaje y podemos comenzar una conversación.</p></div></section>
+
+<section class="contact-section section">
+<div class="container contact-grid">
+<div class="contact-info reveal"><span class="section-number">01</span><h2>Conectemos.</h2><p>Estoy interesado en conocer nuevos proyectos, oportunidades profesionales y personas apasionadas por la tecnología.</p>
+<div class="contact-methods">
+<a href="mailto:TU_CORREO@EJEMPLO.COM" class="contact-method"><div class="contact-icon">@</div><div><span>Email</span><strong>TU_CORREO@EJEMPLO.COM</strong></div><span class="method-arrow">↗</span></a>
+<a href="#" class="contact-method"><div class="contact-icon">GH</div><div><span>GitHub</span><strong>github.com/TU_USUARIO</strong></div><span class="method-arrow">↗</span></a>
+<a href="#" class="contact-method"><div class="contact-icon">in</div><div><span>LinkedIn</span><strong>linkedin.com/in/TU_USUARIO</strong></div><span class="method-arrow">↗</span></a>
+</div>
+<div class="availability"><span class="status-dot"></span><div><strong>Disponible</strong><p>Para proyectos y oportunidades profesionales.</p></div></div>
+</div>
+
+<div class="contact-form-wrapper reveal">
+<div class="form-header"><span>02 / ENVÍAME UN MENSAJE</span><p>Completa el formulario y se abrirá tu aplicación de correo.</p></div>
+<form id="contactForm">
+<div class="form-row"><div class="form-group"><label for="name">Nombre</label><input type="text" id="name" name="name" placeholder="Tu nombre" required></div><div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required></div></div>
+<div class="form-group"><label for="subject">Asunto</label><input type="text" id="subject" name="subject" placeholder="¿En qué podemos trabajar?" required></div>
+<div class="form-group"><label for="message">Mensaje</label><textarea id="message" name="message" rows="7" placeholder="Cuéntame sobre tu proyecto..." required></textarea></div>
+<button type="submit" class="btn btn-primary form-submit">Enviar mensaje <span>↗</span></button>
+<div class="form-status" id="formStatus"></div>
+</form>
+</div>
+</div>
+</section>
+
+<section class="faq-section section"><div class="container"><div class="section-heading reveal"><div><span class="section-number">03</span><h2>Preguntas frecuentes</h2></div></div><div class="faq-list">
+<details class="faq-item reveal"><summary>¿Qué tipo de proyectos puedo desarrollar? <span>+</span></summary><p>Aplicaciones web, automatizaciones, herramientas de software, sistemas y proyectos relacionados con desarrollo tecnológico.</p></details>
+<details class="faq-item reveal"><summary>¿Qué tecnologías utilizas? <span>+</span></summary><p>Principalmente Python, JavaScript, Docker y Linux, además de tecnologías web como HTML y CSS.</p></details>
+<details class="faq-item reveal"><summary>¿Estás disponible para nuevos proyectos? <span>+</span></summary><p>Sí. Puedes utilizar el formulario de contacto para contarme sobre tu idea y revisar juntos las posibilidades.</p></details>
+</div></div></section>
+
+<section class="cta-section"><div class="container"><div class="cta-box reveal"><span class="cta-label">GUILLERMO JAVIER CHANDOMI ESCOBAR</span><h2>Let's build <span>something.</span></h2><p>Código, creatividad y tecnología para convertir ideas en soluciones.</p></div></div></section>
 </main>
-<footer><div class="wrap"><span>© <span class="anio"></span> Guillermo Javier Chandomi Escobar</span><span>Hecho con HTML, CSS y JavaScript</span></div></footer>
+
+<footer class="footer"><div class="container footer-content"><div class="footer-brand"><a href="index.html" class="logo"><span>&lt;</span>GCE<span>/&gt;</span></a><p>Software Developer · Python · JavaScript · Docker · Linux</p></div><div class="footer-links"><a href="index.html">Inicio</a><a href="about.html">Sobre mí</a><a href="index.html#projects">Proyectos</a><a href="contact.html">Contacto</a></div><div class="footer-bottom"><p>© <span id="currentYear"></span> Guillermo Javier Chandomi Escobar. Todos los derechos reservados.</p><p>Diseñado y desarrollado con código.</p></div></div></footer>
 <script src="js/script.js"></script>
 </body>
 </html>

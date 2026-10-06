@@ -1,57 +1,118 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Menú móvil
-  const btn = document.getElementById("menu-btn");
-  const nav = document.getElementById("nav");
-  btn?.addEventListener("click", () => {
-    const abierto = nav.classList.toggle("open");
-    btn.setAttribute("aria-expanded", abierto);
+const header=document.getElementById("header");
+const menuToggle=document.getElementById("menuToggle");
+const navMenu=document.getElementById("navMenu");
+const themeToggle=document.getElementById("themeToggle");
+const themeIcon=document.getElementById("themeIcon");
+const currentYear=document.getElementById("currentYear");
+const contactForm=document.getElementById("contactForm");
+const formStatus=document.getElementById("formStatus");
+
+if(currentYear) currentYear.textContent=new Date().getFullYear();
+
+function handleHeader(){
+  if(!header)return;
+  header.classList.toggle("scrolled",window.scrollY>30);
+}
+window.addEventListener("scroll",handleHeader);
+handleHeader();
+
+if(menuToggle&&navMenu){
+  menuToggle.addEventListener("click",()=>{
+    menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("open");
+    document.body.classList.toggle("no-scroll");
   });
-  nav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-
-  // Tema claro/oscuro (se recuerda en el navegador)
-  const root = document.documentElement;
-  const temaBtn = document.getElementById("tema-btn");
-  try { const t = localStorage.getItem("tema"); if (t) root.dataset.theme = t; } catch (e) {}
-  temaBtn?.addEventListener("click", () => {
-    const oscuro = root.dataset.theme === "dark" ||
-      (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
-    root.dataset.theme = oscuro ? "light" : "dark";
-    try { localStorage.setItem("tema", root.dataset.theme); } catch (e) {}
+  navMenu.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click",()=>{
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("open");
+      document.body.classList.remove("no-scroll");
+    });
   });
+}
 
-  // Enlace activo según la página
-  const actual = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("nav a").forEach(a => {
-    const href = a.getAttribute("href");
-    if (!href.includes("#") && href === actual) a.classList.add("active");
+function updateThemeIcon(){
+  if(!themeIcon)return;
+  themeIcon.textContent=document.body.classList.contains("light-mode")?"☀":"☾";
+}
+if(localStorage.getItem("portfolio-theme")==="light"){
+  document.body.classList.add("light-mode");
+}
+updateThemeIcon();
+
+if(themeToggle){
+  themeToggle.addEventListener("click",()=>{
+    document.body.classList.toggle("light-mode");
+    const isLight=document.body.classList.contains("light-mode");
+    localStorage.setItem("portfolio-theme",isLight?"light":"dark");
+    updateThemeIcon();
   });
+}
 
-  // Aparición al hacer scroll
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
-  }), { threshold: .15 });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-  // Año en el pie
-  document.querySelectorAll(".anio").forEach(el => el.textContent = new Date().getFullYear());
-
-  // Formulario de contacto
-  const form = document.getElementById("form-contacto");
-  form?.addEventListener("submit", e => {
-    e.preventDefault();
-    const datos = Object.fromEntries(new FormData(form));
-    let valido = true;
-    const marcar = (campo, msg) => { form.querySelector(`[data-error="${campo}"]`).textContent = msg; if (msg) valido = false; };
-    marcar("nombre", datos.nombre.trim().length < 2 ? "Escribe tu nombre." : "");
-    marcar("correo", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(datos.correo) ? "" : "Escribe un correo válido.");
-    marcar("mensaje", datos.mensaje.trim().length < 10 ? "El mensaje debe tener al menos 10 caracteres." : "");
-    const estado = document.getElementById("estado");
-    if (!valido) { estado.textContent = ""; return; }
-    // Abre tu cliente de correo con el mensaje listo (sin necesidad de servidor)
-    const asunto = encodeURIComponent("Contacto desde tu portafolio: " + datos.nombre);
-    const cuerpo = encodeURIComponent(`${datos.mensaje}\n\n— ${datos.nombre} (${datos.correo})`);
-    location.href = `mailto:TU_CORREO@ejemplo.com?subject=${asunto}&body=${cuerpo}`;
-    estado.textContent = "Se abrió tu aplicación de correo con el mensaje.";
-    form.reset();
+const revealElements=document.querySelectorAll(".reveal");
+const revealObserver=new IntersectionObserver((entries,observer)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
   });
+},{threshold:.12});
+revealElements.forEach(el=>revealObserver.observe(el));
+
+if(contactForm){
+  contactForm.addEventListener("submit",event=>{
+    event.preventDefault();
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const subject=document.getElementById("subject").value.trim();
+    const message=document.getElementById("message").value.trim();
+
+    if(!name||!email||!subject||!message){
+      showFormStatus("Completa todos los campos.","error");
+      return;
+    }
+
+    const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+      showFormStatus("Introduce un correo electrónico válido.","error");
+      return;
+    }
+
+    const destination="TU_CORREO@EJEMPLO.COM";
+    const mailSubject=encodeURIComponent(subject);
+    const mailBody=encodeURIComponent(`Hola Guillermo,\n\nMi nombre es ${name}.\n\nMi correo es:\n${email}\n\nMensaje:\n\n${message}\n\nSaludos.`);
+    showFormStatus("Abriendo tu aplicación de correo...","success");
+    setTimeout(()=>{
+      window.location.href=`mailto:${destination}?subject=${mailSubject}&body=${mailBody}`;
+    },700);
+  });
+}
+
+function showFormStatus(message,type){
+  if(!formStatus)return;
+  formStatus.textContent=message;
+  formStatus.style.color=type==="success"?"#c8ff3d":"#ff6b6b";
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(event){
+    const targetId=this.getAttribute("href");
+    if(targetId==="#"||targetId.length<=1)return;
+    const target=document.querySelector(targetId);
+    if(target){
+      event.preventDefault();
+      const headerHeight=header?header.offsetHeight:0;
+      const targetPosition=target.getBoundingClientRect().top+window.scrollY-headerHeight-20;
+      window.scrollTo({top:targetPosition,behavior:"smooth"});
+    }
+  });
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape"&&navMenu&&navMenu.classList.contains("open")){
+    navMenu.classList.remove("open");
+    menuToggle.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
 });
